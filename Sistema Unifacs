@@ -1,0 +1,240 @@
+package com.mycompany.sistemaalunos;
+import javax.swing.JOptionPane;
+public class SistemaAlunos {
+
+    public static void main(String[] args) {
+        Aluno[] alunos = new Aluno [3];
+        int z,i=0,menu;
+        
+        do{menu = Integer.parseInt(JOptionPane.showInputDialog("""
+                                                            BEM VINDO AO MENU DA UNIFACS!
+                                                            Escolha as opções abaixo para realizar seu atendimento:
+                                                            1 - Realizar Cadastro
+                                                            2 - Lançar Notas
+                                                            3 - Listar Resultado
+                                                            4 - Sair
+                                                            """));
+        
+        if(menu == 1){
+            if(i < alunos.length){
+            alunos[i] = new Aluno();
+            alunos[i].cadastroAluno();
+            i++;            
+            }else{JOptionPane.showMessageDialog(null, "Limite de alunos matriculados atingido!");}
+        if(menu == 2){
+            
+            for (z=0; z<i; z++){
+                alunos[z].lancarNotas();
+            }
+        }
+        else if(menu == 3){
+            
+        }
+        
+
+        }
+        }
+        while(menu!=4);
+    }
+}
+
+
+
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+//Classe Pessoa 
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+package com.mycompany.sistemaalunos;
+
+public class Pessoa {
+     private String nome;
+     private String email;
+     private String telefone;
+     
+     public Pessoa(){
+         
+     }
+
+    public Pessoa(String nome, String email, String telefone) {
+        this.nome = nome;
+        this.email = email;
+        this.telefone = telefone;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getTelefone() {
+        return telefone;
+    }
+
+    public void setTelefone(String telefone) {
+        this.telefone = telefone;
+    }
+       
+}
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Classe Aluno
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+package com.mycompany.sistemaalunos;
+import javax.swing.JOptionPane;
+public class Aluno extends Pessoa {
+    private String curso;
+    private float n1;
+    private float n2;
+    private float n3;
+    private int matricula;
+    private String UC; 
+
+   public Aluno (){
+       
+   }    
+
+    public Aluno(String curso, float n1, float n2, float n3, int matricula, String UC) {
+        this.curso = curso;
+        this.n1 = n1;
+        this.n2 = n2;
+        this.n3 = n3;
+        this.matricula = matricula;
+        this.UC = UC;
+    }
+
+    public String getUC() {
+        return UC;
+    }
+
+    public void setUC(String UC) {
+        this.UC = UC;
+    }
+
+    public String getCurso() {
+        return curso;
+    }
+
+    public void setCurso(String curso) {
+        this.curso = curso;
+    }
+
+    public float getN1() {
+        return n1;
+    }
+
+    public void setN1(float n1) {
+        this.n1 = n1;
+    }
+
+    public float getN2() {
+        return n2;
+    }
+
+    public void setN2(float n2) {
+        this.n2 = n2;
+    }
+
+    public float getN3() {
+        return n3;
+    }
+
+    public void setN3(float n3) {
+        this.n3 = n3;
+    }
+
+    public int getMatricula() {
+        return matricula;
+    }
+
+    public void setMatricula(int matricula) {
+        this.matricula = matricula;
+    }
+    
+       // -----------------------------------------------------------------------------------------------------
+    
+    public void cadastroAluno(){
+        //cadastro Aluno
+        this.setNome(JOptionPane.showInputDialog("Informe seu nome completo: "));
+        this.setMatricula(Integer.parseInt(JOptionPane.showInputDialog("Informe seu número de matricula: ")));
+        this.setCurso(JOptionPane.showInputDialog("Informe o curso no qual o senhor(a) foi matriculado: "));
+        this.setUC(JOptionPane.showInputDialog("Informe a sua unidade curricular do semestre: "));
+        this.setEmail(JOptionPane.showInputDialog("Informe seu email para cadastro: "));
+        this.setTelefone(JOptionPane.showInputDialog("Informe seu número de telefone: ")); 
+        
+        //Notas das provas
+        this.setN1(Float.parseFloat(JOptionPane.showInputDialog("Digite a nota da primeira prova!")));
+        this.setN2(Float.parseFloat(JOptionPane.showInputDialog("Digite a nota da segunda prova!")));
+        this.setN3(Float.parseFloat(JOptionPane.showInputDialog("Digite a nota da terceira prova!")));
+        
+    }
+    
+    // -----------------------------------------------------------------------------------------------------
+    
+    
+    
+    public void lancarNotas(){
+                    JOptionPane.showMessageDialog(null, "Nome: " + this.getNome()
+                                      +"\n Matricula: " + this.getMatricula()
+                                      +"\n Curso: " + this.getCurso()
+                                      +"\n Unidade Curricular: " + this.getUC()
+                                      +"\n Email: " + this.getEmail()
+                                      +"\n Telefone: " + this.getTelefone());
+                    JOptionPane.showMessageDialog(null, "Notas das provas"
+                                          +"\n Nota da A1: " + this.getN1()
+                                          +"\n Nota da A2: " + this.getN2()
+                                          +"\n Nota da A3: " + this.getN3());  
+    }
+ 
+    public void listarResultado(){
+                    JOptionPane.showMessageDialog(null, "Nome: " + this.getNome()
+                                      +"\n Matricula: " + this.getMatricula()
+                                      +"\n Curso: " + this.getCurso()
+                                      +"\n Unidade Curricular: " + this.getUC()
+                                      +"\n Email: " + this.getEmail()
+                                      +"\n Telefone: " + this.getTelefone());
+            JOptionPane.showMessageDialog(null, "Notas das provas"                    
+                                          +"\n Nota da A1: " + this.getN1()
+                                          +"\n Nota da A2: " + this.getN2()
+                                          +"\n Nota da A3: " + this.getN3());
+            float notaFinal;
+            notaFinal = this.getN1() + this.getN2() + this.getN3();
+            JOptionPane.showMessageDialog(null, "Nota final: " + notaFinal);
+            
+            if(notaFinal >= 70){
+                JOptionPane.showMessageDialog(null, "Parabéns, você foi aprovado");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, """
+                                                    Você terá que fazer a Avaliação Substitutiva valendo 30 pts
+                                                    e substituir a A1 ou A2 que tiver a menor nota.
+                                                    """);
+            }
+ 
+    }
+}
+
