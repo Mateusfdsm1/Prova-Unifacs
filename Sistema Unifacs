@@ -3,7 +3,7 @@ import javax.swing.JOptionPane;
 public class SistemaAlunos {
 
     public static void main(String[] args) {
-        Aluno[] alunos = new Aluno [3];
+        Aluno[] alunos = new Aluno [10];
         int z,i=0,menu;
         
         do{menu = Integer.parseInt(JOptionPane.showInputDialog("""
